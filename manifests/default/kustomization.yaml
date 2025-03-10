@@ -1,0 +1,10 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namePrefix: cosi-sample-
+resources:
+- ../app
+- ../cosi
+images:
+- name: app
+  newName: localhost:5005/cosi-sample-app
+  newTag: dev-cf8b31-dirty

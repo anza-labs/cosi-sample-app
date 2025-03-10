@@ -1,0 +1,13 @@
+name: linters
+
+on:
+  pull_request:
+    branches: ["*"]
+
+jobs:
+  hadolint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          make hadolint

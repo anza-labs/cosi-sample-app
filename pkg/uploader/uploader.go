@@ -63,7 +63,7 @@ func (u *Uploader) upload(
 	}
 	defer fp.Close() //nolint:errcheck // best effort call
 
-	key := fmt.Sprintf("%s-%s", time.Now().Format(""), stat.Name())
+	key := fmt.Sprintf("%s-%s", time.Now().Format("2006-Jan-02-15-04-05"), stat.Name())
 
 	if err := u.client.Put(ctx, key, fp, stat.Size()); err != nil {
 		return fmt.Errorf("put failed: %w", err)

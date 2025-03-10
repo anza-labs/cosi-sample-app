@@ -21,15 +21,3 @@ jobs:
         with:
           requireScope: true
           subjectPattern: ^(?![A-Z]).+$
-          scopes: |
-            deps
-            operator
-            example
-            image
-            kustomize
-            e2e
-            integration
-            unit
-            gh-actions
-            build-system
-            tools

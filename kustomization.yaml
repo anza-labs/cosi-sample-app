@@ -1,0 +1,9 @@
+images:
+- name: cosi-sample-app
+  newName: ghcr.io/anza-labs/cosi-sample-app
+  newTag: v0.1.0
+namePrefix: cosi-sample-
+namespace: cosi-sample
+resources:
+- ./manifests/app
+- ./manifests/cosi

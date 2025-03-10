@@ -61,6 +61,11 @@ lint: golangci-lint ## Run golangci-lint linter
 lint-fix: golangci-lint ## Run golangci-lint linter and perform fixes
 	$(GOLANGCI_LINT) run --fix
 
+.PHONY: lint-manifests
+lint-manifests: kustomize kube-linter ## Run kube-linter on Kubernetes manifests.
+	$(KUSTOMIZE) build manifests/default |\
+		$(KUBE_LINTER) lint --config=./manifests/.kube-linter.yaml -
+
 .PHONY: hadolint
 hadolint: ## Run hadolint on Dockerfile
 	$(CONTAINER_TOOL) run --rm -i hadolint/hadolint < Dockerfile

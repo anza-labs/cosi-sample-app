@@ -44,12 +44,17 @@ spec:
         - name: MAX_SIZE
           value: '4194304' # 4MB in bytes
         resources:
-          limits:
+          requests:
             memory: "64Mi"
             cpu: "50m"
         volumeMounts:
         - name: logs
           mountPath: /mnt/logs
+        securityContext:
+          runAsUser: 1000
+          runAsGroup: 1000
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
       containers:
       - name: uploader
         image: app
@@ -57,9 +62,12 @@ spec:
         - --upload-interval=240
         - --file=/mnt/logs/log.txt
         resources:
-          limits:
+          requests:
             memory: "256Mi"
             cpu: "100m"
+        securityContext:
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
         volumeMounts:
         - name: logs
           mountPath: /mnt/logs

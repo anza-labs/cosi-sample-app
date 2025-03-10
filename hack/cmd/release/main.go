@@ -27,7 +27,7 @@ import (
 )
 
 const (
-	defaultImageName = "cosi-sample-app"
+	defaultImageName = "app"
 	defaultImageRef  = "ghcr.io/anza-labs/cosi-sample-app"
 )
 

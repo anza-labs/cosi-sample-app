@@ -2,7 +2,6 @@ apiVersion: objectstorage.k8s.io/v1alpha1
 kind: BucketAccess
 metadata:
   name: app
-  namespace: default
 spec:
   bucketClaimName: cosi-sample-app
   protocol: S3

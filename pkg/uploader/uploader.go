@@ -32,6 +32,7 @@ func (u *Uploader) Run(ctx context.Context, filepath string) error {
 	for {
 		select {
 		case <-ctx.Done():
+			log.Printf("context done")
 			if err := ctx.Err(); err != nil {
 				if !errors.Is(err, context.Canceled) {
 					return err
@@ -40,10 +41,12 @@ func (u *Uploader) Run(ctx context.Context, filepath string) error {
 			return nil
 
 		case <-ticker.C:
-			log.Printf("uploading %v", filepath)
-			if err := u.upload(ctx, filepath); err != nil {
-				log.Printf("[ERROR] %v", err)
-			}
+			go func() {
+				log.Printf("uploading %v", filepath)
+				if err := u.upload(ctx, filepath); err != nil {
+					log.Printf("[ERROR] %v", err)
+				}
+			}()
 		}
 	}
 }

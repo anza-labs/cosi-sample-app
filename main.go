@@ -22,7 +22,7 @@ import (
 func main() {
 	opts := runOptions{}
 
-	flag.StringVar(&opts.cosiConfig, "bucket-info", "/cosi/BucketInfo.json", "")
+	flag.StringVar(&opts.cosiConfig, "bucket-info", "/cosi/BucketInfo", "")
 	flag.StringArrayVar(&opts.files, "file", []string{}, "")
 	flag.IntVar(&opts.interval, "upload-interval", 10, "")
 	flag.Parse()
@@ -69,6 +69,7 @@ func run(ctx context.Context, opts runOptions) error {
 			if err := u.Run(ctx, file); err != nil {
 				return fmt.Errorf("%s: %w", file, err)
 			}
+			log.Printf("eg bye")
 			return nil
 		})
 	}

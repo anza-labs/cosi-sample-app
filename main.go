@@ -69,6 +69,7 @@ func run(ctx context.Context, opts runOptions) error {
 			if err := u.Run(ctx, file); err != nil {
 				return fmt.Errorf("%s: %w", file, err)
 			}
+			log.Printf("eg bye")
 			return nil
 		})
 	}

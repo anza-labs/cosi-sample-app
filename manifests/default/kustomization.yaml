@@ -8,4 +8,4 @@ resources:
 images:
 - name: app
   newName: localhost:5005/cosi-sample-app
-  newTag: dev-c71e06-dirty
+  newTag: dev-fa50a7-dirty

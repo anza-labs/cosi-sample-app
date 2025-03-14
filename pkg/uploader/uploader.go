@@ -35,9 +35,11 @@ func (u *Uploader) Run(ctx context.Context, filepath string) error {
 			log.Printf("context done")
 			if err := ctx.Err(); err != nil {
 				if !errors.Is(err, context.Canceled) {
+					log.Printf("bye (with error)")
 					return err
 				}
 			}
+			log.Printf("bye")
 			return nil
 
 		case <-ticker.C:

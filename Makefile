@@ -153,7 +153,7 @@ GOLANGCI_LINT  ?= $(LOCALBIN)/golangci-lint
 ADDLICENSE_VERSION ?= v1.1.1
 
 # renovate: datasource=github-tags depName=tilt-dev/ctlptl
-CTLPTL_VERSION ?= v0.8.39
+CTLPTL_VERSION ?= v0.8.40
 
 # renovate: datasource=github-tags depName=golangci/golangci-lint
 GOLANGCI_LINT_VERSION ?= v1.64.8

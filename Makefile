@@ -46,19 +46,15 @@ help: ## Display this help.
 ##@ Development
 
 .PHONY: fmt
-fmt: ## Run go fmt against code.
-	go fmt ./...
-
-.PHONY: vet
-vet: ## Run go vet against code.
-	go vet ./...
+fmt: golangci-lint ## Run golangci-lint formatters.
+	$(GOLANGCI_LINT) fmt
 
 .PHONY: lint
-lint: golangci-lint ## Run golangci-lint linter
+lint: golangci-lint ## Run golangci-lint linters.
 	$(GOLANGCI_LINT) run
 
 .PHONY: lint-fix
-lint-fix: golangci-lint ## Run golangci-lint linter and perform fixes
+lint-fix: golangci-lint ## Run golangci-lint linters and perform fixes.
 	$(GOLANGCI_LINT) run --fix
 
 .PHONY: lint-manifests
@@ -120,7 +116,7 @@ undeploy: kustomize ## Undeploy app from the K8s cluster specified in ~/.kube/co
 
 .PHONY: diff
 diff: ## Run git diff-index to check if any changes are made.
-	git --no-pager diff HEAD --
+	git --no-pager diff --exit-code HEAD --
 
 VERSION ?= main
 
@@ -153,10 +149,10 @@ GOLANGCI_LINT  ?= $(LOCALBIN)/golangci-lint
 ADDLICENSE_VERSION ?= v1.1.1
 
 # renovate: datasource=github-tags depName=tilt-dev/ctlptl
-CTLPTL_VERSION ?= v0.8.39
+CTLPTL_VERSION ?= v0.8.40
 
 # renovate: datasource=github-tags depName=golangci/golangci-lint
-GOLANGCI_LINT_VERSION ?= v1.64.7
+GOLANGCI_LINT_VERSION ?= v2.1.6
 
 # renovate: datasource=github-tags depName=kubernetes-sigs/kind
 KIND_VERSION ?= v0.27.0
@@ -183,7 +179,7 @@ $(CTLPTL)-$(CTLPTL_VERSION): $(LOCALBIN)
 .PHONY: golangci-lint
 golangci-lint: $(GOLANGCI_LINT)-$(GOLANGCI_LINT_VERSION) ## Download golangci-lint locally if necessary.
 $(GOLANGCI_LINT)-$(GOLANGCI_LINT_VERSION): $(LOCALBIN)
-	$(call go-install-tool,$(GOLANGCI_LINT),github.com/golangci/golangci-lint/cmd/golangci-lint,$(GOLANGCI_LINT_VERSION))
+	./hack/install-golangci-lint.sh $(LOCALBIN) $(GOLANGCI_LINT) $(GOLANGCI_LINT_VERSION)
 
 .PHONY: kind
 kind: $(KIND)-$(KIND_VERSION) ## Download kind locally if necessary.

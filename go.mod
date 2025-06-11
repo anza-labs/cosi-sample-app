@@ -5,7 +5,7 @@ go 1.24.0
 require (
 	github.com/Azure/azure-sdk-for-go/sdk/storage/azblob v1.6.1
 	github.com/Masterminds/semver/v3 v3.3.1
-	github.com/minio/minio-go/v7 v7.0.92
+	github.com/minio/minio-go/v7 v7.0.93
 	github.com/spf13/pflag v1.0.6
 	golang.org/x/sync v0.15.0
 	sigs.k8s.io/yaml v1.4.0

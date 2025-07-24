@@ -8,7 +8,7 @@ require (
 	github.com/minio/minio-go/v7 v7.0.95
 	github.com/spf13/pflag v1.0.7
 	golang.org/x/sync v0.16.0
-	sigs.k8s.io/yaml v1.5.0
+	sigs.k8s.io/yaml v1.6.0
 )
 
 require (

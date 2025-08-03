@@ -152,7 +152,7 @@ ADDLICENSE_VERSION ?= v1.1.1
 CTLPTL_VERSION ?= v0.8.42
 
 # renovate: datasource=github-tags depName=golangci/golangci-lint
-GOLANGCI_LINT_VERSION ?= v2.3.0
+GOLANGCI_LINT_VERSION ?= v2.3.1
 
 # renovate: datasource=github-tags depName=kubernetes-sigs/kind
 KIND_VERSION ?= v0.29.0

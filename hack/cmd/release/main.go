@@ -32,6 +32,7 @@ const (
 )
 
 func runCommand(name string, args ...string) error {
+	log.Printf("Running command: %s %s", name, strings.Join(args, " "))
 	cmd := exec.Command(name, args...)
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
@@ -116,14 +117,21 @@ func release(version, fullVersion string) error {
 	}
 	if err := gitCmd(
 		"commit",
-		"-sm", fmt.Sprintf("chore(%s): create release commit %s", version, fullVersion),
+		"--signoff",
+		"--allow-empty",
+		"--message", fmt.Sprintf("chore(%s): create release commit %s", version, fullVersion),
 	); err != nil {
 		return err
 	}
 	if err := gitCmd("push", "origin", fmt.Sprintf("release-%s", version)); err != nil {
 		return err
 	}
-	if err := gitCmd("tag", fullVersion); err != nil {
+	if err := gitCmd(
+		"tag",
+		fullVersion,
+		"--message",
+		fmt.Sprintf("release: %s", version),
+	); err != nil {
 		return err
 	}
 	return gitCmd("push", "--tags")

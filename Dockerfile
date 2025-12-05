@@ -1,5 +1,5 @@
 # Easy crosscomple toolkit
-FROM --platform=$BUILDPLATFORM tonistiigi/xx:1.8.0 AS xx
+FROM --platform=$BUILDPLATFORM tonistiigi/xx:1.9.0 AS xx
 
 # Build the cosi-sample-app binary
 FROM --platform=$BUILDPLATFORM docker.io/library/golang:1.25 AS builder

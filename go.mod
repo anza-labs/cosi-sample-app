@@ -7,7 +7,7 @@ require (
 	github.com/Masterminds/semver/v3 v3.4.0
 	github.com/minio/minio-go/v7 v7.0.97
 	github.com/spf13/pflag v1.0.10
-	golang.org/x/sync v0.18.0
+	golang.org/x/sync v0.19.0
 	sigs.k8s.io/yaml v1.6.0
 )
 

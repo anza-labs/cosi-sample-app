@@ -149,16 +149,16 @@ GOLANGCI_LINT  ?= $(LOCALBIN)/golangci-lint
 ADDLICENSE_VERSION ?= v1.2.0
 
 # renovate: datasource=github-tags depName=tilt-dev/ctlptl
-CTLPTL_VERSION ?= v0.8.43
+CTLPTL_VERSION ?= v0.9.0
 
 # renovate: datasource=github-tags depName=golangci/golangci-lint
-GOLANGCI_LINT_VERSION ?= v2.4.0
+GOLANGCI_LINT_VERSION ?= v2.10.1
 
 # renovate: datasource=github-tags depName=kubernetes-sigs/kind
-KIND_VERSION ?= v0.30.0
+KIND_VERSION ?= v0.31.0
 
 # renovate: datasource=github-tags depName=stackrox/kube-linter
-KUBE_LINTER_VERSION ?= v0.7.6
+KUBE_LINTER_VERSION ?= v0.8.2
 
 # renovate: datasource=github-tags depName=kubernetes-sigs/kustomize
 KUSTOMIZE_VERSION ?= v5.6.0
